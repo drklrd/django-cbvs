@@ -8,27 +8,27 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Hello ! </h1>
-        <h2>Access records</h2>
-        <div class="records">
-            {% if access_records %}
-                <table>
-                    <thead>
-                        <th>Site Name</th>
-                        <th>Date Accessed</th>
-                    </thead>
+        <div class="container">
+            <div class="jumbotron">
+                <h2>Go to /formpage to add topic </h2>
+            </div>
+            <div class="records">
+                {% if topics %}
+                    <table>
+                        <thead>
+                            <th>Topic Name</th>
+                        </thead>
 
-                    {% for acc in access_records %}
-                        <tr>
-                            <td> {{ acc.name }}  </td>
-                            <td> {{ acc.date }}  </td>
-
-                        </tr>
-                    {% endfor %}
-                </table>
-            {% else %}
-                <p>No access records</p>
-            {% endif %}
+                        {% for topic in topics %}
+                            <tr>
+                                <td> {{ topic.top_name }}  </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    <p>No topic added</p>
+                {% endif %}
+            </div>
         </div>
     </body>
 </html>
