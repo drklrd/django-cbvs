@@ -47,3 +47,9 @@ NameError: name 'Topics' is not defined
 >>>
 
 ```
+
+
+#### Create super user
+```
+ python manage.py createsuperuser
+```
