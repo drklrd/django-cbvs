@@ -9,3 +9,10 @@
 ```
  python manage.py startapp firstapp
 ```
+
+
+### Run migration
+
+```
+ python manage.py migrate
+```
