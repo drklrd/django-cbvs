@@ -53,3 +53,9 @@ NameError: name 'Topics' is not defined
 ```
  python manage.py createsuperuser
 ```
+
+#### Install Faker
+
+```
+pip install Faker
+```
