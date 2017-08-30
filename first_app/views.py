@@ -12,6 +12,12 @@ def index(request):
     # my_dict = {'insert_me': 'Hello from views.py!'}
     return render(request,'first_app/index.html',context=date_dict)
 
+def other(request):
+    return render(request,'first_app/other.html')
+
+def relative(request):
+    return render(request,'first_app/relative.html')
+
 def form_name_view(request):
 
     form = NewTopicForm()
