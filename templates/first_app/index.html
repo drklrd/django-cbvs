@@ -1,34 +1,24 @@
 <!DOCTYPE html>
-{% load staticfiles  %}
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>First App</title>
-        <link rel="stylesheet" href="{% static "css/style.css" %}" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    </head>
-    <body>
-        <div class="container">
-            <div class="jumbotron">
-                <h2>Go to /formpage to add topic </h2>
-            </div>
-            <div class="records">
-                {% if topics %}
-                    <table>
-                        <thead>
-                            <th>Topic Name</th>
-                        </thead>
+{% extends "first_app/base.html" %}
+{% block body_block %}
+    <div class="jumbotron">
+        <h2>Go to /formpage to add topic </h2>
+    </div>
+    <div class="records">
+        {% if topics %}
+            <table>
+                <thead>
+                    <th>Topic Name</th>
+                </thead>
 
-                        {% for topic in topics %}
-                            <tr>
-                                <td> {{ topic.top_name }}  </td>
-                            </tr>
-                        {% endfor %}
-                    </table>
-                {% else %}
-                    <p>No topic added</p>
-                {% endif %}
-            </div>
-        </div>
-    </body>
-</html>
+                {% for topic in topics %}
+                    <tr>
+                        <td> {{ topic.top_name | upper }}  </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No topic added</p>
+        {% endif %}
+    </div>
+{% endblock %}
