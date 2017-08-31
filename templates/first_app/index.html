@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% extends "first_app/base.html" %}
+{% load my_extras %}
 {% block body_block %}
     <div class="jumbotron">
         <h2>Go to /formpage to add topic </h2>
@@ -15,7 +16,7 @@
                 {% for topic in topics %}
                     <tr>
                         <td> {{ topic.top_name | upper }}  </td>
-                        <td> {{ topic.top_name | cut:'a' }}  </td>
+                        <td> {{ topic.top_name | cutvalue:'a' }}  </td>
                     </tr>
                 {% endfor %}
             </table>
