@@ -10,5 +10,7 @@ urlpatterns = [
     url(r'^other/$',views.other,name='other'),
     url(r'^register/$',views.register,name='register'),
     url(r'^logout/$',views.user_logout,name='user_logout'),
-    url(r'^login/$',views.user_login,name='user_login')
+    url(r'^login/$',views.user_login,name='user_login'),
+    url(r'^cbv/$',views.CBView.as_view()),
+
 ]
