@@ -1,4 +1,4 @@
-### Create project
+ ### Create project
 
 ```
  django-admin startproject djangotryout
@@ -58,4 +58,11 @@ NameError: name 'Topics' is not defined
 
 ```
 pip install Faker
+```
+
+#### Install bcrypt
+
+```
+pip install bcrypt
+pip install 'django[argon2]'
 ```
