@@ -11,13 +11,22 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth import authenticate,login,logout
 
-from django.views.generic import View
+from django.views.generic import View,TemplateView
 from django.http import HttpResponse
 
 class CBView(View):
 
     def get(self,request):
         return HttpResponse("Class based views")
+
+class TemplateViewClass(TemplateView):
+
+    template_name = "first_app/templateview.html"
+
+    def get_context_data(self,**kwargs):
+        context = super().get_context_data(**kwargs)
+        context['name'] = "Mero naam"
+        return context
 
 def index(request):
     webpages_list = Topic.objects.all()
