@@ -11,8 +11,21 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth import authenticate,login,logout
 
-from django.views.generic import View,TemplateView
+from django.views.generic import View,TemplateView,ListView,DetailView
 from django.http import HttpResponse
+from . import models
+
+class TopicListView(ListView):
+    context_object_name = 'topics'
+    model = models.Topic
+    # on default, this automaticaaly returns topic_list context. Topic class is lowercased + '_list'. we can change this by defining context_object_name
+
+class TopicDetailView(DetailView):
+    context_object_name = 'topic_detail'
+    model = models.Topic
+    template_name = 'first_app/topic_detail.html'
+    # on default, this automaticaaly returns topic context. Topic class is lowercased . we can change this by defining context_object_name
+
 
 class CBView(View):
 

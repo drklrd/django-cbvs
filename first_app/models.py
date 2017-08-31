@@ -10,7 +10,7 @@ class Topic(models.Model):
 
 
 class Webpage(models.Model):
-    topic = models.ForeignKey(Topic)
+    topic = models.ForeignKey(Topic,related_name='webpages')
     name = models.CharField(max_length=264,unique=True)
     url = models.URLField(unique=True)
 

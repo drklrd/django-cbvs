@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends "first_app/first_app_base.html" %}
+{% block body_block %}
+
+    <h1>Welcome to list of topics</h1>
+    <ol>
+         <!-- on default, TopicListView automaticaaly returns topic_list context. Topic class is lowercased + '_list'. we can change this by defining context_object_name -->
+        {% for topic in topics %}
+            <h3><li> <a href="{{topic.id}}"> {{topic.top_name}} </a> </li></h3>
+        {% endfor %}
+    </ol>
+
+{% endblock %}

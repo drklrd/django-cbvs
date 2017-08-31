@@ -12,5 +12,8 @@ urlpatterns = [
     url(r'^logout/$',views.user_logout,name='user_logout'),
     url(r'^login/$',views.user_login,name='user_login'),
     url(r'^cbv/$',views.TemplateViewClass.as_view()),
+    url(r'^list/$',views.TopicListView.as_view(),name='list'),
+    url(r'^list/(?P<pk>[-\w]+)/$',views.TopicDetailView.as_view(),name='detail'),
+
 
 ]

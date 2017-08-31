@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "first_app/first_app_base.html" %}
+{% block body_block %}
+
+    <div class="jumbotron">
+        <h1>Welcome to detail of a topic</h1>
+        <p>
+            Name : {{ topic_detail.top_name }}
+        </p>
+        <h3>Webpages:</h3>
+
+        {% for webpage in topic_detail.webpages.all %}
+            <p>
+                {{ webpage.name }}
+            </p>
+        {% endfor %}
+
+    </div>
+
+{% endblock %}
