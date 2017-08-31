@@ -6,11 +6,42 @@ from first_app.forms import NewTopicForm,UserForm,UserProfileInfoForm
 # Create your views here.
 
 
+from django.core.urlresolvers import reverse
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse,HttpResponseRedirect
+from django.contrib.auth import authenticate,login,logout
+
 def index(request):
     webpages_list = Topic.objects.all()
     date_dict = {'topics' : webpages_list }
     # my_dict = {'insert_me': 'Hello from views.py!'}
     return render(request,'first_app/index.html',context=date_dict)
+
+def user_login(request):
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        print('$$$',username)
+        password = request.POST.get('password')
+        user = authenticate(username=username,password=password)
+        if user:
+            if user.is_active:
+                login(request,user)
+                return HttpResponseRedirect(reverse('index'))
+            else :
+                return HttpResponse("Account not active")
+        else:
+            print("Login failed !")
+            return HttpResponse("invalid login details provided")
+
+    else:
+        return render(request,'first_app/login.html',{})
+
+@login_required # only if user is logged in we do logout. so adding this decorator
+def user_logout(request):
+
+    logout(request)
+    return HttpResponseRedirect(reverse('index'))
 
 
 def register(request):

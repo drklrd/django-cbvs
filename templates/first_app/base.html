@@ -13,6 +13,13 @@
                     <li ><a class="navbar-brand" href="{% url 'admin:index' %}"></a>ADMIN</li>
                     <li ><a class="navbar-brand" href="{% url 'first_app:other' %}"></a>OTHER</li>
                     <li ><a class="navbar-brand" href="{% url 'first_app:register' %}"></a>Register</li>
+
+                    {% if user.is_authenticated %}
+                        <li><a class="navbar-brand" href="{% url 'first_app:user_logout' %}"></a>Logout</li>
+                    {% else %}
+                        <li><a class="navbar-brand" href="{% url 'first_app:user_login' %}"></a>Login</li>
+                    {% endif %}
+
                 </ul>
             </div>
         </nav>

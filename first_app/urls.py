@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^$',views.index,name='index'),
     url(r'^relative/$',views.relative,name='relative'),
     url(r'^other/$',views.other,name='other'),
-    url(r'^register/$',views.register,name='register')
-
+    url(r'^register/$',views.register,name='register'),
+    url(r'^logout/$',views.user_logout,name='user_logout'),
+    url(r'^login/$',views.user_login,name='user_login')
 ]
