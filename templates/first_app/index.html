@@ -9,11 +9,13 @@
             <table>
                 <thead>
                     <th>Topic Name</th>
+                    <th>Topic Cut Name Version</th>
                 </thead>
 
                 {% for topic in topics %}
                     <tr>
                         <td> {{ topic.top_name | upper }}  </td>
+                        <td> {{ topic.top_name | cut:'a' }}  </td>
                     </tr>
                 {% endfor %}
             </table>
