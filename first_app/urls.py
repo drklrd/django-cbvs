@@ -13,7 +13,13 @@ urlpatterns = [
     url(r'^login/$',views.user_login,name='user_login'),
     url(r'^cbv/$',views.TemplateViewClass.as_view()),
     url(r'^list/$',views.TopicListView.as_view(),name='list'),
-    url(r'^list/(?P<pk>[-\w]+)/$',views.TopicDetailView.as_view(),name='detail'),
+    url(r'^list/(?P<pk>\d+)/$',views.TopicDetailView.as_view(),name='detail'),
+    url(r'^create/$',views.TopicCreateView.as_view(),name='create'),
+    url(r'^list/update/(?P<pk>\d+)/$',views.TopicUpdateView.as_view(),name='update'),
+    url(r'^list/delete/(?P<pk>\d+)/$',views.TopicDeleteView.as_view(),name='delete'),
+
+
+
 
 
 ]

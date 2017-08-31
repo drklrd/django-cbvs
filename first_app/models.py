@@ -1,5 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+
+from django.core.urlresolvers import reverse
+
 # Create your models here.
 
 class Topic(models.Model):
@@ -7,6 +10,10 @@ class Topic(models.Model):
 
     def __str__(self):
         return self.top_name
+
+    def get_absolute_url(self):
+        return reverse("first_app:detail",kwargs={'pk':self.pk})
+
 
 
 class Webpage(models.Model):

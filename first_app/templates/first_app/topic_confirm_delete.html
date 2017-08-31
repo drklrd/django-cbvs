@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+{% extends "first_app/first_app_base.html" %}
+{% block body_block %}
+    <h1>Delete  {{topic.top_name}}? </h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" class="btn btn-danger" value="Delete">
+        <a href="{% url 'first_app:detail' pk=topic.pk %}">Cancel</a>
+    </form>
+{% endblock %}

@@ -11,7 +11,9 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth import authenticate,login,logout
 
-from django.views.generic import View,TemplateView,ListView,DetailView
+from django.views.generic import View,TemplateView,ListView,DetailView,CreateView,UpdateView,DeleteView
+from django.core.urlresolvers import reverse_lazy
+
 from django.http import HttpResponse
 from . import models
 
@@ -25,6 +27,19 @@ class TopicDetailView(DetailView):
     model = models.Topic
     template_name = 'first_app/topic_detail.html'
     # on default, this automaticaaly returns topic context. Topic class is lowercased . we can change this by defining context_object_name
+
+class TopicCreateView(CreateView):
+    fields = ('top_name',)
+    model = models.Topic
+
+class TopicUpdateView(UpdateView):
+    fields = ('top_name',)
+    model = models.Topic
+
+class TopicDeleteView(DeleteView):
+    model = models.Topic
+    success_url = reverse_lazy("first_app:list")
+
 
 
 class CBView(View):

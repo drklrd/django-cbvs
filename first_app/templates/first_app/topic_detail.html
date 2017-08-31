@@ -17,4 +17,9 @@
 
     </div>
 
+    <div class="container">
+        <p><a class="btn btn-warning" href="{% url 'first_app:update' pk=topic_detail.pk %}">Update</a></p>
+        <p><a class="btn btn-danger" href="{% url 'first_app:delete' pk=topic_detail.pk %}">Delete</a></p>
+    </div>
+
 {% endblock %}
