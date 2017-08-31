@@ -1,5 +1,6 @@
 from django import forms
-from first_app.models import Topic
+from first_app.models import Topic,UserProfileInfo
+from django.contrib.auth.models import User
 
 class NewTopicForm(forms.ModelForm):
 
@@ -7,6 +8,18 @@ class NewTopicForm(forms.ModelForm):
         model = Topic
         fields = '__all__'
 
+class UserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta():
+        model = User
+        fields = ('username','email','password')
+
+class UserProfileInfoForm(forms.ModelForm):
+
+    class Meta():
+        model = UserProfileInfo
+        fields = ('portfolio_site','profile_pic')
 
 
 # from django import forms

@@ -66,3 +66,9 @@ pip install Faker
 pip install bcrypt
 pip install 'django[argon2]'
 ```
+
+#### Install pillow (for image)
+
+```
+pip install pillow
+```
